@@ -1,0 +1,113 @@
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Script Array</title>
+    <style>
+    body{
+        margin: 40px;
+        border: 4px dotted blue;
+        padding: 10px;
+    }
+    h1{
+       
+        margin-left: 5px;
+    }
+    p{
+        margin-left: 25px;
+        font-family: 'Lucida Sans' , 'Lucida Grande', Geneva, Verdana, sans-serif;
+    }
+    </style>
+</head>
+<body>
+     <h1>Javascript Arrays</h1>
+      <hr>
+     <h2>The find() Method</h2>
+      <hr>
+     <p>The find() of Array instances method returns the first element in the provided array that satisfies the provided testing function.</p>
+      <p>If no values satisfy the testing function, undefined is returned.</p>
+     <p id="demo1"></p>
+
+
+     <h2>The filter() Method</h2>
+      <hr>
+     <p>The filter() method of Array instances creates a shallow copy of a portion of a given array </p>
+      <p> filtered down to just the elements from the given array that pass the test implemented by the provided function.</p>
+     <p id="demo"></p>
+
+     <h2>The map() Method</h2>
+     <hr>
+     <p>The map() method of Array instances creates a new array populated with the results of calling a provided function on every element in the calling array.</p>
+    
+     <p id="demo2"></p>
+      <h1>Example for Arrays in Javascript</h1><hr>
+     <h2>(1) Find the largest number in an array.</h2><hr>
+     <p>arr = [42,89,213,52,155,62,212,99]</p>
+     <p>Largest number from array is:</p>
+     <p id="demo3"></p>
+
+     <h2>(2) Find the second largest number in an array.</h2><hr>
+     <p>arr = [2,45,35,96,75,68,22,76]</p>
+     <p>Second Largest number from array is:</p>
+     <p id="demo4"></p>
+
+    <script>
+        
+        const validage = [11, 42, 32, 21, 52, 63];
+        document.getElementById("demo1").innerHTML = validage.find(checkAge);
+        function checkAge(age) {
+            return age > 63;
+        }
+         const ages = [35,41,21,5,14,48,58,44];
+        document.getElementById("demo").innerHTML = ages.filter(checkAdult);
+        function checkAdult(age) {
+            return age > 21;
+        }
+
+
+        const numbers = [10,20,30,40,50,60,70];
+        const newArr = numbers.map(myFunction);
+        document.getElementById("demo2").innerHTML = newArr;
+        function myFunction(num) {
+            return num + 5;
+        }     
+        
+       let arr = [42,89,213,52,155,62,212,99];
+        document.getElementById("demo3").innerHTML = largest(arr);
+            function largest(arr) {
+                let i;
+                let max = arr[0]; 
+                    for(i=1; i<arr.length; i++){ 
+                        if (arr[i] > max)
+                        max = arr[i];
+                    }
+                    return max;
+            }
+        
+            const array = [2,45,35,96,75,68,22,76];
+            const secondLargest = findSecondLargest(array);
+            document.getElementById("demo4").innerHTML = secondLargest;
+
+            function findSecondLargest(arr) {
+            let largest = arr[0]; 
+            let secondLargest = -Infinity;
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] > largest) {
+                    secondLargest = largest; 
+                    largest = arr[i]; 
+                } else if (arr[i] < largest && arr[i] > secondLargest) {
+                            secondLargest = arr[i]; 
+                            }
+                    }
+                return secondLargest;
+            }
+
+
+   
+
+
+
+    </script>
+</body>
+</html>
